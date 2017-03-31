@@ -15,7 +15,6 @@ public class Main {
 		printMsg();
 		
 		while(!"q".equals(scelta = scan.nextLine())){
-			
 			dir = new Directory(dirPath);
 			
 			switch(scelta){

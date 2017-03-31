@@ -66,7 +66,7 @@ public class Directory {
 				for(int i=0; i<dirList.length; i++){
 					File f = new File(this.path, dirList[i]);
 					if(f.exists() && f.isFile()){
-							System.out.println("- " + dirList[i]);
+						System.out.println("- " + dirList[i]);
 					}
 				}
 			}
