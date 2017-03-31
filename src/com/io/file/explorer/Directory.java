@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Directory {
@@ -165,8 +168,8 @@ public class Directory {
 		}
 	}
 	
-	public void leggiContFile(Scanner scan) throws IOException{
-		String nomeFile = "", linea = "";
+	public String leggiContFile(Scanner scan) throws IOException{
+		String nomeFile = "", linea = "", testo = "";
 		FileReader fr = null;
 		BufferedReader br = null;
 		try{
@@ -176,9 +179,10 @@ public class Directory {
 			fr = new FileReader(this.path + "\\" + nomeFile);
 			br = new BufferedReader(fr);
 			
-			linea = br.readLine(); 
+			linea = br.readLine();
 			
 			while(linea != null){
+				testo += (linea + " ");
 				System.out.println(linea);
 				linea = br.readLine();
 			}
@@ -187,6 +191,35 @@ public class Directory {
 		}finally{
 			if(fr != null)
 				fr.close();
+		}
+		return testo;
+	}
+
+	public void occurrencesOnFile(Scanner scan){
+		Map<String, Integer> myMap = new HashMap<String, Integer>();
+		String testo = "";
+		
+		try{
+			testo = leggiContFile(scan);
+			System.out.println("-------------------------------------------");
+			String[] textArr = testo.split(" ");
+			
+			for (int i=0; i<textArr.length; i++) {
+				Integer freq = myMap.get(textArr[i]);
+				
+				if(freq == null)
+					freq = 1;
+				else
+					freq++;
+				
+				myMap.put(textArr[i], freq);
+			}
+			for (String key : myMap.keySet()) {
+				Integer val = myMap.get(key);
+				System.out.println(key + " ha " + val + " occurrences");
+			}
+		}catch(IOException e){
+			e.printStackTrace();
 		}
 	}
 	

@@ -6,7 +6,7 @@ import com.io.file.explorer.Directory;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		String scelta = "", dirPath = "";
+		String scelta = "", dirPath = "", contFile = "";
 		Scanner scan = new Scanner(System.in);
 		Directory dir;
 		
@@ -46,8 +46,12 @@ public class Main {
 					dir.writeOnFile(scan);
 					printMsg();
 				break;
+				case "i":
+					dir.occurrencesOnFile(scan);
+					printMsg();
+				break;
 				case "r":
-					dir.leggiContFile(scan);
+					contFile = dir.leggiContFile(scan);
 					printMsg();
 				break;
 			}
@@ -67,6 +71,7 @@ public class Main {
 		System.out.println("  r => Leggi contenuto file");
 		System.out.println("  o => Crea file copia");
 		System.out.println("  s => Scrivi su file");
+		System.out.println("  i => Occorrenze di parola su file");
 		System.out.println("  q => Termina il programma");
 	}
 }
