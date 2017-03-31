@@ -58,7 +58,7 @@ public class Main {
 	}
 	
 	public static void printMsg(){
-		System.out.println("-----------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------");
 		System.out.println("Scegli un'azione tra le seguenti: ");
 		System.out.println("  n => Cambia directory di base");
 		System.out.println("  c => Crea un file nel percorso specificato");
