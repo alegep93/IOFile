@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -205,8 +204,7 @@ public class Directory {
 			String[] textArr = testo.split(" ");
 			
 			for (int i=0; i<textArr.length; i++) {
-				Integer freq = myMap.get(textArr[i]);
-				
+				Integer freq = myMap.get(textArr[i]);				
 				if(freq == null)
 					freq = 1;
 				else

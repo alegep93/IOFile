@@ -6,7 +6,7 @@ import com.io.file.explorer.Directory;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
-		String scelta = "", dirPath = "", contFile = "";
+		String scelta = "", dirPath = "";
 		Scanner scan = new Scanner(System.in);
 		Directory dir;
 		
@@ -51,8 +51,7 @@ public class Main {
 					printMsg();
 				break;
 				case "r":
-					contFile = dir.leggiContFile(scan);
-					printMsg();
+				printMsg();
 				break;
 			}
 		}
